@@ -1,4 +1,17 @@
+table, th, td{
+  border: 2px solid red;
+  margin-left: 15px;
+}
+
+.checkbox-regular{
+  width: 25px;
+  position: relative;
+}
+
 input {
+  width: 10%;
+}
+miss-input {
   width: 10%;
   border: 2px solid red;
 }
