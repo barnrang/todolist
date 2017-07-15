@@ -26,6 +26,12 @@ $(document).ready(function(){
 
   $('#delete').click(function(){
     var tick = $(".checkbox-regular");
-    console.log(tick);
+    var job = $("tr");
+    var i;
+    for(i = 0; i < tick.length; i++){
+      if(tick[i].checked){
+        job[i+1].remove();
+      }
+    }
   });
 });
