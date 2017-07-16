@@ -42,6 +42,7 @@ $(document).ready(function(){
     /*console.log("key has been pressed " + pressCount + " times"
   + "by key" + String.fromCharCode(event.which));*/
   })
+  //add task
 
   $('#target').on('submit', function(e) {
     var text = $('#todoname').val();
@@ -60,7 +61,7 @@ $(document).ready(function(){
     });
   });
 
-
+  //finish task
   $('#delete').click(function(){
     var tick = $(".checkbox-regular");
     var job = $("tr");
