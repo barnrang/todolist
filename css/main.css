@@ -8,6 +8,14 @@ table, th, td{
   position: relative;
 }
 
+.searchBox{
+  width: 10%
+}
+
+.searchResult{
+
+}
+
 input {
   width: 10%;
 }
