@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename="css/main.css")}}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="{{url_for('static',filename="script/main.js")}}"></script>
+  </head>
+  <body>
+    <p>Hello World</p>
+    <form id="search">
+      <input type="text" style="input" class="searchBox" placeholder="Type..">
+    </form>
+    <p class="searchResult">
+    </p>
+    <form id="target">
+      todo: <input type="text" style="input" name="todo" id="todoname" placeholder="what to do?">
+      <input type="submit" value="click">
+    </form>
+    <table id="todolist">
+      <tr>
+        <td> JOB </td>
+        <td> DONE </td>
+      </tr>
+    </table>
+    <button id="delete">delete</button>
+  </body>
+</html>
