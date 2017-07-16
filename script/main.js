@@ -29,17 +29,16 @@ $(document).ready(function(){
   $('.searchBox').keyup(function(event){
     $('.searchResult').empty();
     var list = $(".job");
-    console.log(list[0].innerText);
+    //console.log(list[0].innerText);
     var i = 0;
     var sub = $(this).val();
-    for(;i < list.length; i++){
-      if(checkSubString(sub, list[i].innerText)){
-        $('.searchResult').append(list[i].innerText + "<br>");
+    if(sub){
+      for(;i < list.length; i++){
+        if(checkSubString(sub, list[i].innerText)){
+          $('.searchResult').append(list[i].innerText + "<br>");
+        }
       }
     }
-    /*if(checkSubString($(this))){
-
-    }*/
     /*console.log("key has been pressed " + pressCount + " times"
   + "by key" + String.fromCharCode(event.which));*/
   })
