@@ -5,10 +5,14 @@
     <link rel="stylesheet" type="text/css" href="{{url_for('static',filename="css/main.css")}}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="{{url_for('static',filename="script/main.js")}}"></script>
+    <title>TODOLIST {% block title %}{% endblock %}</title>
   </head>
   <body>
+    <ul class="nav-bar">
+        <li><a class="active" href="{{url_for('folder')}}">Folder</a></li>
+    </ul>
     <main>
-      {{% block main %}}{{% endblock %}}
+      {% block main %}{% endblock %}
     </main>
   </body>
 </html>
