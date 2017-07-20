@@ -2,9 +2,22 @@ String.prototype.isEmpty = function() {
     return (this.length === 0 || !this.trim());
 };
 
+function updateDraggable(top, bottom){
+  $('workblock').draggable({revert:true, axis: "y",
+    containment: [0,top,0,bottom],
+    drag: function(e, ui){
+      $(this).css("background-color","#FFFFFF");
+    },
+    stop: function(e, ui){
+      $(this).css("background-color","#F5F5F5")
+    }
+});
+}
+
 function checkSubString(sub, str){
   var lensub = sub.length;
   var lenstr = str.length;
+  console.log(topContainment + " " + bottomContainment);
   str = str.toLowerCase();
   sub = sub.toLowerCase();
   var i = 0, j = 0;
@@ -25,8 +38,9 @@ function checkSubString(sub, str){
 $(document).ready(function(){
   alert("js success")
   //Search box
-  console.log("test");
+  //console.log("test");
   var lists = {};
+
   if(localStorage.tasklist){
     console.log(JSON.parse(localStorage.tasklist));
     var lists = JSON.parse(localStorage.tasklist);
@@ -34,13 +48,21 @@ $(document).ready(function(){
     var table = $('#todolist')
     for(var key in lists){
       console.log(key);
-      table.append("<tr><th class=\"job\">" + key + "</th><th>"
-    + "<input type=\"checkbox\" class=\"checkbox-regular\">" + "</tr>")
+      table.append("<workblock draggable=\"true\">"
+        + "<div class=\"job\">"
+        + key
+        + "</div>"
+        + "<div class=\"checkbox-list\">"
+        +  "<input type=\"checkbox\" class=\"checkbox-regular\">"
+        + "</div>"
+        + "</workblock>")
     }
   }else{
     console.log("not found");
   }
 
+  var topContainment = $('#todoname').offset().top;
+  var bottomContainment = $('#delete').offset().top;
   $('.searchBox').keyup(function(event){
     $('.searchResult').empty();
     var list = $(".job");
@@ -76,9 +98,17 @@ $(document).ready(function(){
     }
     //$('#todolist').append(text+"<br>");
     if(!text.isEmpty()){
-      $('#todolist').append("<tr><th class=\"job\">" + text + "</th><th>"
-    + "<input type=\"checkbox\" class=\"checkbox-regular\">" + "</tr>");
+      $('#todolist').append("<workblock draggable=\"true\">"
+        + "<div class=\"job\">"
+        + text
+        + "</div>"
+        + "<div class=\"checkbox-list\">"
+        +  "<input type=\"checkbox\" class=\"checkbox-regular\">"
+        + "</div>"
+        + "</workblock>");
+      bottomContainment = $('#delete').offset().top;
       $('#todoname').val("");
+      updateDraggable(topContainment,bottomContainment);
     }
     e.preventDefault();
     $.ajax({
@@ -91,7 +121,7 @@ $(document).ready(function(){
   //finish task
   $('#delete').click(function(){
     var tick = $(".checkbox-regular");
-    var job = $("tr");
+    var job = $("workblock");
     var jobName = $('.job');
     var i;
     for(i = 0; i < tick.length; i++){
@@ -99,10 +129,14 @@ $(document).ready(function(){
         console.log(jobName[i]);
         var text = jobName[i].innerText;
         console.log(text)
-        job[i+1].remove();
+        job[i].remove();
         delete lists[text];
         localStorage.tasklist = JSON.stringify(lists);
       }
     }
+    bottomContainment = $('#delete').offset().top;
+    updateDraggable(topContainment, bottomContainment);
   });
+
+  updateDraggable(topContainment,bottomContainment);
 });
