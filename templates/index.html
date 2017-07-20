@@ -13,12 +13,15 @@
       ToDo : <input type="text" style="input" name="todo" id="todoname" placeholder="what to do?">
       <input type="submit" value="click">
     </form>
-    <table id="todolist">
-      <tr>
-        <td> JOB </td>
-        <td> DONE </td>
-      </tr>
-    </table>
+    <div id="todolist">
+
+    </div>
+    <workblock draggable="true">
+      I love you
+      <div class="checkbox-list">
+        <input type="checkbox" class="checkbox-regular">
+      </div>
+    </workblock>
     <button id="delete" action="{{url_for('index')}}" method="post">delete</button>
     </div>
   </body>
