@@ -17,10 +17,11 @@ table, th, td{
   width: 50%;
 }
 
-.checkbox-regular{
+/*.checkbox-regular{
   width: 50px;
-  position: relative;
-}
+  display: inline;
+  margin-left: 5em;
+}*/
 
 .searchBox{
   width: 10%
@@ -63,4 +64,25 @@ li a {
 
 li a:hover {
     background-color: #111;
+}
+
+/*work list box*/
+
+workblock{
+  display: block;
+  width: 50%;
+  background-color: #F5F5F5;
+  padding: 15px;
+  margin: auto;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  text-align: left;
+
+  border-left: 10px solid #FF9966;
+  border-right: 2px solid #FF9966;
+}
+
+.checkbox-list{
+  display: inline;
+  margin-left: 13em;
 }
