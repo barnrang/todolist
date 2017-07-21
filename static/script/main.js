@@ -2,7 +2,7 @@ String.prototype.isEmpty = function() {
     return (this.length === 0 || !this.trim());
 };
 
-function updateDraggable(top, bottom){
+/*function updateDraggable(top, bottom){
   $('workblock').draggable({revert:true, axis: "y",
     containment: [0,top,0,bottom],
     drag: function(e, ui){
@@ -12,7 +12,15 @@ function updateDraggable(top, bottom){
       $(this).css("background-color","#F5F5F5")
     }
 });
+}*/
+
+
+
+function updateSortable(){
+  $('#todolist').sortable()
 }
+
+$('table').sortable();
 
 function checkSubString(sub, str){
   var lensub = sub.length;
@@ -41,6 +49,13 @@ $(document).ready(function(){
   //console.log("test");
   var lists = {};
 
+//Slide bar
+$("#menu-toggle").click(function(e) {
+    e.preventDefault();
+    $("#wrapper").toggleClass("toggled");
+});
+
+
   if(localStorage.tasklist){
     console.log(JSON.parse(localStorage.tasklist));
     var lists = JSON.parse(localStorage.tasklist);
@@ -48,21 +63,24 @@ $(document).ready(function(){
     var table = $('#todolist')
     for(var key in lists){
       console.log(key);
-      table.append("<workblock draggable=\"true\">"
+      table.append("<li class=\"workblock\">"
         + "<div class=\"job\">"
         + key
         + "</div>"
         + "<div class=\"checkbox-list\">"
         +  "<input type=\"checkbox\" class=\"checkbox-regular\">"
         + "</div>"
-        + "</workblock>")
+        + "</li>")
     }
   }else{
     console.log("not found");
   }
-
+  console.log('Enable sortable');
   var topContainment = $('#todoname').offset().top;
   var bottomContainment = $('#delete').offset().top;
+  updateSortable();
+
+//Search Box
   $('.searchBox').keyup(function(event){
     $('.searchResult').empty();
     var list = $(".job");
@@ -81,6 +99,7 @@ $(document).ready(function(){
   })
   //add task
 
+//Todolist
   $('#target').on('submit', function(e) {
     var text = $('#todoname').val();
     var tmp = text;
@@ -98,17 +117,17 @@ $(document).ready(function(){
     }
     //$('#todolist').append(text+"<br>");
     if(!text.isEmpty()){
-      $('#todolist').append("<workblock draggable=\"true\">"
+      $('#todolist').append("<li class=\"workblock\">"
         + "<div class=\"job\">"
         + text
         + "</div>"
         + "<div class=\"checkbox-list\">"
         +  "<input type=\"checkbox\" class=\"checkbox-regular\">"
         + "</div>"
-        + "</workblock>");
+        + "</li>");
       bottomContainment = $('#delete').offset().top;
       $('#todoname').val("");
-      updateDraggable(topContainment,bottomContainment);
+      //updateSortable();
     }
     e.preventDefault();
     $.ajax({
@@ -118,10 +137,12 @@ $(document).ready(function(){
     });
   });
 
+
+
   //finish task
   $('#delete').click(function(){
     var tick = $(".checkbox-regular");
-    var job = $("workblock");
+    var job = $(".workblock");
     var jobName = $('.job');
     var i;
     for(i = 0; i < tick.length; i++){
@@ -135,8 +156,9 @@ $(document).ready(function(){
       }
     }
     bottomContainment = $('#delete').offset().top;
-    updateDraggable(topContainment, bottomContainment);
+    //updateSortable();
   });
 
-  updateDraggable(topContainment,bottomContainment);
+
+  //updateDraggable(topContainment,bottomContainment);
 });

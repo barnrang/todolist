@@ -8,13 +8,18 @@
   text-align: center;
 }
 
+#todolist{
+  background-color: white;
+  float: left;
+}
+
 table, th, td{
-  border: 2px solid blue;
   margin-left: auto;
   margin-right: auto;
   margin-top: 5px;
   margin-bottom: 5px;
-  width: 50%;
+  width: 60%;
+
 }
 
 /*.checkbox-regular{
@@ -24,7 +29,7 @@ table, th, td{
 }*/
 
 .searchBox{
-  width: 10%
+  width: 50px;
 }
 
 .searchResult{
@@ -32,7 +37,7 @@ table, th, td{
 }
 
 input {
-  width: 10%;
+  width: 150px;
 }
 miss-input {
   width: 10%;
@@ -42,7 +47,7 @@ miss-input {
 
 /* Navigation Bar*/
 
-ul {
+ul.nav-bar {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -68,18 +73,23 @@ li a:hover {
 
 /*work list box*/
 
-workblock{
+.workblock{
   display: block;
-  width: 50%;
+  width: 300px;
   background-color: #F5F5F5;
   padding: 15px;
-  margin: auto;
+  margin-left: auto;
+  margin-right: 5px;*/
   margin-bottom: 5px;
-  margin-top: 5px;
+  margin-top: 10px;
   text-align: left;
 
   border-left: 10px solid #FF9966;
   border-right: 2px solid #FF9966;
+}
+
+li.workblock:hover {
+  background-color: #FFFFFF;
 }
 
 .checkbox-list{

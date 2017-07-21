@@ -8,7 +8,7 @@ app = Flask(__name__)
 def index():
     if request.method == "GET":
         return render_template("index.html")
-        
+
 @app.route('/folder', methods = ['GET','POST'])
 def folder():
     if request.method == "GET":
