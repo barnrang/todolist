@@ -20,6 +20,37 @@ function updateSortable(){
   $('#todolist').sortable()
 }
 
+function updateToggle(){
+  $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+  });
+}
+
+function changeDisplay(){
+
+  var windowWidth = $(window).width();
+  console.log(windowWidth);
+  if(windowWidth < 768){
+    console.log("lol");
+    if(!document.getElementById("menu-toggle")){
+      console.log("lol2")
+      var text = $(".nav-bar").html();
+      text = "<a class=\"active\""
+      + "id=\"menu-toggle\" href=\"#\">Folder</a>"
+      + text;
+      $(".nav-bar").html(text);
+      updateToggle();
+    }
+  } else {
+    if(document.getElementById("menu-toggle")){
+      $("#menu-toggle").remove();
+    }
+  }
+}
+
+
+
 $('table').sortable();
 
 function checkSubString(sub, str){
@@ -48,12 +79,15 @@ $(document).ready(function(){
   //Search box
   //console.log("test");
   var lists = {};
-
+  var windowWidth = $(window).width();
+  console.log(windowWidth);
+  //Navigation bar
+  if(windowWidth >= 768){
+    console.log('test');
+    $("#menu-toggle").remove();
+  }
+  else updateToggle();
 //Slide bar
-$("#menu-toggle").click(function(e) {
-    e.preventDefault();
-    $("#wrapper").toggleClass("toggled");
-});
 
 
   if(localStorage.tasklist){

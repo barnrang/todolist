@@ -10,7 +10,7 @@
     <script src="{{url_for('static',filename="script/main.js")}}"></script>
     <title>TODOLIST {% block title %}{% endblock %}</title>
   </head>
-  <body>
+  <body onresize="changeDisplay()">
     <div id="wrapper">
       <div id="sidebar-wrapper">
           <ul class="sidebar-nav">
@@ -26,12 +26,12 @@
       </div>
 
 
-        <ul class="nav-bar">
-            <li><a class="active" id="menu-toggle" href="#">Folder</a></li>
-            <li><a class="active" href="{{url_for('index')}}">Home</a></li>
-        </ul>
+        <div class="nav-bar">
+            <a class="active" id="menu-toggle" href="#">Folder</a>
+            <a class="active" href="{{url_for('index')}}">Home</a>
+        </div>
           <!-- Sidebar -->
-          <div id="page-content-wrapper">
+        <div id="page-content-wrapper">
         <main>
           {% block main %}{% endblock %}
         </main>
