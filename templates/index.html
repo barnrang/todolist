@@ -2,8 +2,7 @@
 
 {% block title %} Home {% endblock %}
 {% block main %}
-  <body>
-    <div class="display">
+  <div class="display">
     <form id="search">
       Search: <input type="text" style="input" class="searchBox" placeholder="Type..">
     </form>
@@ -23,6 +22,6 @@
       </div>
     </workblock> -->
     <br>
-    
     <button id="delete" action="{{url_for('index')}}" method="post">delete</button>
+  </div>
 {% endblock %}

@@ -9,12 +9,22 @@
 }
 
 #todolist{
+  width: 300px;
   background-color: white;
-  float: left;
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  transition: all 0.5s ease;
+  margin: auto;
+  padding: 0;
+}
+
+/*#todolist li{
+  margin: auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}*/
+
+/* Delete Box */
+
+#delete{
+  clear: left;
 }
 
 table, th, td{
@@ -52,10 +62,11 @@ miss-input {
 /* Navigation Bar*/
 
 .nav-bar {
+  z-index: 1;
   overflow: hidden;
   background-color: #333;
   height: 48px;
-  /*position: fixed;*/
+  position: fixed;
   top: 0;
   width: 100%;
 }
@@ -68,6 +79,10 @@ miss-input {
   padding: 14px 16px;
   text-decoration: none;
   font-size: 17px;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 
 .nav-bar a:hover {
@@ -78,11 +93,10 @@ miss-input {
 
 .workblock{
   display: block;
-  width: 300px;
+  width: inherit;
   background-color: #F5F5F5;
   padding: 15px;
-  margin-left: auto;
-  margin-right: 5px;*/
+  margin: auto;
   margin-bottom: 5px;
   margin-top: 10px;
   text-align: left;

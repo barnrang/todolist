@@ -11,25 +11,29 @@
     <title>TODOLIST {% block title %}{% endblock %}</title>
   </head>
   <body onresize="changeDisplay()">
+    <div class="nav-bar">
+        <a class="active" id="menu-toggle" href="#">Folder</a>
+        <a class="active" href="{{url_for('index')}}">Home</a>
+    </div>
     <div id="wrapper">
       <div id="sidebar-wrapper">
           <ul class="sidebar-nav">
             <li class="sidebar-brand">
               <a href="#">
-                  Start Bootstrap
+                  Folder list
               </a>
             </li>
             <li>
-              <a href="#">lol</a>
+              <a href="#">test1</a>
+            </li>
+            <li>
+              <a href="#">test2</a>
             </li>
           </ul>
       </div>
 
 
-        <div class="nav-bar">
-            <a class="active" id="menu-toggle" href="#">Folder</a>
-            <a class="active" href="{{url_for('index')}}">Home</a>
-        </div>
+
           <!-- Sidebar -->
         <div id="page-content-wrapper">
         <main>

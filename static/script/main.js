@@ -36,6 +36,9 @@ function changeDisplay(){
     if(!document.getElementById("menu-toggle")){
       console.log("lol2")
       var text = $(".nav-bar").html();
+      console.log($(".nav-bar").children().outerWidth());
+      $(".nav-bar").children().animate({rigth: $(".nav-bar").children().outerWidth()})
+      console.log("notice");
       text = "<a class=\"active\""
       + "id=\"menu-toggle\" href=\"#\">Folder</a>"
       + text;
@@ -51,7 +54,7 @@ function changeDisplay(){
 
 
 
-$('table').sortable();
+//$('table').sortable();
 
 function checkSubString(sub, str){
   var lensub = sub.length;
