@@ -9,6 +9,13 @@ How to run the local server:
   3. open terminal then run
  ```
  $ export FLASK_APP=run.py
+ ```
+ or for window
+ ```
+ :/>set FLASK_APP=run.py
+ ```
+ then run the server
+ ```
  $ flask run
  ```
   4. Enjoy!
