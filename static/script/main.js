@@ -103,9 +103,9 @@ $(document).ready(function(){
       table.append("<li class=\"workblock\">"
         + "<div class=\"job\">"
         + key
-        + "</div>"
-        + "<div class=\"checkbox-list\">"
+        + "<span class=\"checkbox-list\">"
         +  "<input type=\"checkbox\" class=\"checkbox-regular\">"
+        + "</span>"
         + "</div>"
         + "</li>")
     }
@@ -157,9 +157,9 @@ $(document).ready(function(){
       $('#todolist').append("<li class=\"workblock\">"
         + "<div class=\"job\">"
         + text
-        + "</div>"
-        + "<div class=\"checkbox-list\">"
+        + "<span class=\"checkbox-list\">"
         +  "<input type=\"checkbox\" class=\"checkbox-regular\">"
+        + "</span>"
         + "</div>"
         + "</li>");
       bottomContainment = $('#delete').offset().top;

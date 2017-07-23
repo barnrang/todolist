@@ -111,5 +111,10 @@ li.workblock:hover {
 
 .checkbox-list{
   display: inline;
-  margin-left: 13em;
+  float: right;
+}
+
+.checkbox-regular{
+  width: inherit;
+  padding: 10px;
 }
