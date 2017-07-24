@@ -8,6 +8,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="{{url_for('static',filename="script/main.js")}}"></script>
+    <script src="{{url_for('static',filename="script/jquery.ui.touch-punch.min.js")}}"></script>
     <title>TODOLIST {% block title %}{% endblock %}</title>
   </head>
   <body onresize="changeDisplay()">
@@ -19,12 +20,12 @@
       <div id="sidebar-wrapper">
           <ul class="sidebar-nav">
             <li class="sidebar-brand">
-              <a href="#">
-                  Folder list
+              <a href="#" onclick="addFolder()">
+                  New Folder
               </a>
             </li>
             <li>
-              <a href="#">test1</a>
+              <a href="#">test1<span set="0" class="expands">&oplus;</span></a>
             </li>
             <li>
               <a href="#">test2</a>

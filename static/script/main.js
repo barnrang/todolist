@@ -14,7 +14,13 @@ String.prototype.isEmpty = function() {
 });
 }*/
 
-
+function addMenuSide(i){
+  var slidebar = $('.sidebar-nav');
+    slidebar.append(
+      "<li><a href=\"#\">" + i + "<span class=\"expands\" set=\"0\">&oplus;</span>"
+       + "</a></li>"
+    );
+}
 
 function updateSortable(){
   $('#todolist').sortable()
@@ -28,7 +34,6 @@ function updateToggle(){
 }
 
 function changeDisplay(){
-
   var windowWidth = $(window).width();
   console.log(windowWidth);
   if(windowWidth < 768){
@@ -53,13 +58,21 @@ function changeDisplay(){
 }
 
 
-
+function sideBarToggle(sidebar){
+  sidebar.on('click','.expands',function(){
+    if($(this).attr("set")==="0"){
+      $(this).parent().css("background-color","yellow");
+      $(this).attr("set","1");
+    } else {$(this).parent().css("background-color","black");
+      $(this).attr("set","0");
+    }
+  });
+}
 //$('table').sortable();
 
 function checkSubString(sub, str){
   var lensub = sub.length;
   var lenstr = str.length;
-  console.log(topContainment + " " + bottomContainment);
   str = str.toLowerCase();
   sub = sub.toLowerCase();
   var i = 0, j = 0;
@@ -76,6 +89,15 @@ function checkSubString(sub, str){
   return false;
 }
 
+//add new Folder
+
+function addFolder(){
+  var name = prompt("Enter Folder Name","Newfolder");
+  if(!name.isEmpty()){
+    addMenuSide(name);
+  }
+}
+
 
 $(document).ready(function(){
   alert("js success")
@@ -90,9 +112,10 @@ $(document).ready(function(){
     $("#menu-toggle").remove();
   }
   else updateToggle();
+
 //Slide bar
-
-
+  var sidebar = $(".sidebar-nav");
+  sideBarToggle(sidebar);
   if(localStorage.tasklist){
     console.log(JSON.parse(localStorage.tasklist));
     var lists = JSON.parse(localStorage.tasklist);
